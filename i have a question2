@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-size: 2em;
+      color: white;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    button {
+      animation: shake 0.5s infinite;
+      padding: 15px 25px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      background-color: white;
+      color: red;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:active {
+      background-color: yellow;
+    }
+    @keyframes shake {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-3px, 0px) rotate(1deg); }
+      30% { transform: translate(3px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg); }
+      60% { transform: translate(-3px, 1px) rotate(0deg); }
+      70% { transform: translate(3px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(1px, 2px) rotate(0deg); }
+      100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="title">i can be your boyfriend?</div>
+  <div class="buttons">
+    <button onclick="sayYes()">YES</button>
+    <button id="noButton" onmouseover="moveNoButton()">no</button>
+  </div>
+  <script>
+    function sayYes() {
+      alert("yeah, sabía que dirías que sí TKM <3");
+    }
+
+    function moveNoButton() {
+      const button = document.getElementById("noButton");
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+
+      // Calcula nuevas coordenadas dentro de los límites de la pantalla
+      const randomX = Math.random() * (screenWidth - button.offsetWidth);
+      const randomY = Math.random() * (screenHeight - button.offsetHeight);
+
+      button.style.position = "absolute";
+      button.style.left = randomX + "px";
+      button.style.top = randomY + "px";
+    }
+  </script>
+</body>
+</html>
